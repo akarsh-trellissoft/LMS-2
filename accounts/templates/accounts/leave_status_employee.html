@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>Leave Status</title>
+<link rel="stylesheet" href="{% static 'css/all_tables.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+</head>
+<body style="background-color: #F3F3F3;">
+    <nav id="menu" role="navigation">
+        <div class="brand">MENU</div>            
+        <ul>
+            <li><a href="{% url 'user' %}">Home</a></li>
+            <li><a href="{% url 'applyleave' %}">Apply Leave</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+     <div class="page-wrap">
+        <button id="menu-toggle"></button>
+        <div class="container" role="main">
+        <h3 style="color:black">Hi, {{ dataset.employee }}. Here's your recent leave logs</h3>
+        </div>
+</div>
+<section>
+<table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th>Type</th>
+            <th>Day(s)</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Actions</th>
+            </tr>
+            </thead>
+        <tbody>
+            {% for leave in dataset.leave_list %}
+            <tr>
+            <td>{{ leave.leavetype }}</td>
+            <td>{{ leave.leave_days }}</td>
+            <td>{{ leave.reason }}</td>
+            {% if leave.is_approved %}
+            <td style="color:green;">Approved</td>
+            {% elif leave.is_rejected %}
+            <td style="color:red;">{{ leave.status }}</td>
+            {% else %}
+            <td style="color:#00717F;">{{ leave.status }}</td>
+            {% endif %}
+            <td><a href="{% url 'leaves_view' leave.id %}">view</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        </section>
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+</html>

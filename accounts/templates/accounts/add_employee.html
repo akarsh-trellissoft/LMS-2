@@ -1,0 +1,133 @@
+{% comment %} <html>
+{% load staticfiles %}
+<head>
+<title>Edit Profile</title>
+<link type="stylesheet" href="{% static 'accounts/edit_profile.css' %}" />
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit </button>
+</form>
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+</body>
+</html> {% endcomment %}
+
+{% load staticfiles %}  
+<html>
+    <head>
+        <title>Edit your profile</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/edit_neha.css' %}">   
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    </head>
+    <body>
+        <nav>
+            <section class="nav-container" style="background: white;">
+                <aside class="logo">
+                    <img src="{% static 'trellis-logo.png' %}" height="65px" weidth="100px">
+                    
+                </aside>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{% url 'dashboard' %}">Home</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </div>
+    
+            </section>
+        </nav>
+        <div class="e-box">
+            <h1>Add Employee</h1>
+
+            {% comment %} <form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit </button>
+</form> {% endcomment %}
+
+{% if form.errors %}
+{{ form.errors }}
+{% endif %}
+
+
+                 <form name="myForm" method ="POST" enctype="multipart/form-data"  >
+                 {% csrf_token %}
+                <p>User :   {{ form.user }} </p>
+                <p>Title :   {{ form.title }} </p> 
+                <br/> 
+                <p>Image :   {{ form.image }} </p>
+
+                <p>First Name :   {{ form.firstname }} </p>
+
+                <p>Last Name :   {{ form.lastname }} </p>
+
+                {% comment %} <p>Othername :   {{ form.othername }} </p> {% endcomment %}
+
+                <p>Gender :   {{ form.sex }} </p>
+
+                <p>Email :   {{ form.email }} </p>
+
+                <p>Tel :   {{ form.tel }} </p>
+
+                <p>Bio :   {{ form.bio }} </p>
+
+                <p>Birthdate :</p>
+               
+                {{ form.birthday }}
+
+                <p>Hometown :   {{ form.hometown }} </p>
+
+                {% comment %} <p>Current Residence :   {{ form.residence }} </p> {% endcomment %}
+
+                <p>Address :   {{ form.address }} </p>
+
+                <p>Education :   {{ form.education }} </p>
+                <br/>
+                <p>Last Place Of Work :   {{ form.lastwork }} </p>
+
+                <p>Position Held :   {{ form.position }} </p>
+
+                <p>Reporting To :   {{ form.reporting_to }} </p>
+                <br/>
+                <p>Department :   {{ form.department }} </p>
+
+                <p>Role :   {{ form.role }} </p>
+                <br/>
+                <p>Employement Date :   {{ form.startdate }} </p>
+
+                <p>Employee Type :   {{ form.employeetype }} </p>
+                  <br/>
+
+                {% comment %} <p>Select</p>
+                <select name="type">
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                    <option>Option 3</option>
+                    <option>Option 4</option>
+                </select>
+                <p>Textarea</p>
+                 <textarea rows="7" cols="27"></textarea>
+                <p>Phone</p>
+                <input type="tel" id="phone" name="phone" placeholder="" pattern="[0-9]-{3}[0-9]{3}-[0-9]{4}">
+                <br>
+<label for="myfile">Select a file:</label>
+       <input type="file" id="myfile" name="myfile"> {% endcomment %}
+       <input type="submit" name="submit">
+                </form> 
+              </div>
+              <div class="footer">
+                <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+                <div class="icons">
+                   <p> <a href="https://www.facebook.com/TrellisSoftInc/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/trellissoft/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/company/trellissoft/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com/TrellisSoftInc"><i class="fa fa-twitter" aria-hidden="true"></i></a></p>
+            </div>
+            </div>
+    </body>
+</html>

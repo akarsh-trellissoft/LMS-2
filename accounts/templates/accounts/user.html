@@ -1,0 +1,100 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Welcome {{ employee.firstname }}</title>
+	<meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/employee.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,600,600i,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/flaticon.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+    <style>
+    .profile_image img{
+        width:inherit;
+        max-height:400px;
+    }
+    </style>
+</head>
+<body>
+
+	<div class="home-five-style">
+		<header class="header-section">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="site-logo">
+							<h2><a href="#">TrellisSoft</a></h2>
+							<p>LEAVE MANAGEMENT SYSTEM</p>
+						</div>
+					</div>
+					<div class="col-md-8 text-md-right header-buttons">
+						<a href="{% url 'applyleave' %}" class="site-btn">APPLY FOR LEAVE</a>
+						<a href="{% url 'view_my_leave_table' %}" class="site-btn">LEAVE LOGS/STATUS</a>
+						<a href="{% url 'changepassword' %}" class="site-btn">Cahnge Password</a>
+                        <a href="{% url 'logout' %}" class="site-btn">LOGOUT</a>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<section class="hero-section">
+			<div class="container-fluid text-center">
+				<div class="profile_image">
+				 {% if employee.image.url %}
+				<img src="{{ employee.image.url }}" alt="">
+				{% endif %} 
+				<div>
+				<div class="hero-text">
+					<h2 style="font-size:45px;">{{ employee }}</h2>
+					<p style="font-size:30px;">{{ employee.bio }}</p>
+				</div>
+				<div class="social-links">
+                    <a href="{% url 'holi'  %}">LeaveCalender</a>
+					{% comment %} <a href="{% url 'editform' employee.id %}">EditProfile</a> {% endcomment %}
+					<a href="{% url 'edit_profile' employee.id %}">EditProfile</a>
+				</div>
+			</div>
+		</section>
+
+		<div class="info-section">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="container-warp">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="hero-info mb-4 mb-md-0">
+									<ul>
+										<li><span>Date of Birth</span>{{ employee.birthday }}</li>
+										<li><span>Address</span>{{ employee.residence }}</li>
+									</ul>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="hero-info">
+									<ul>
+										<li><span>E-mail</span>{{ employee.email }}</li>
+										<li><span>Phone </span>{{ employee.tel }}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="{% static 'js/jquery-2.1.4.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'js/employee.js' %}"></script>
+</body>
+</html>

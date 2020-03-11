@@ -1,0 +1,181 @@
+<!-- {% comment %} <!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel='stylesheet' href='https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css'>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+  </head>
+  <body>
+    <form method="POST" action="">
+        {% csrf_token %}
+
+      <div class="segment">
+        <h1>Sign Up</h1>
+      </div>
+      <label>
+        {{ form.username }}
+      </label>
+      <label>
+        {{ form.email }}
+      </label>
+      <label>
+        {{ form.password1 }}
+      </label>
+      <label>
+        {{ form.password2 }}
+      </label>
+      <button class="red" type="submit"><i class="icon ion-md-lock"></i> Sign up</button>
+    </form>
+    <div class="segment">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    <script>
+
+        var formfields = document.getElementsByTagName('input');
+        formfields[1].placeholder="User Name";
+        formfields[2].placeholder="Email";
+        formfields[3].placeholder="Password";
+        formfields[4].placeholder="Confirm Password";
+    </script>
+</body>
+</html>
+ {% endcomment %}
+
+
+<html>
+{% load staticfiles %}
+<head>
+    <title>Registration form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register2.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+    <body>
+    <nav>
+        <section class="nav-container" style="background: white;">
+            <aside class="logo">
+                <img src="{% static 'trellis-logo.png' %}" height="65px" weidth="100px">
+
+            </aside>
+                <div class="menu">
+                    <ul>
+                        <li>Register</li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+
+        </section>
+    </nav>
+    <div class="r-box">
+    <img src="{% static 'avatar.png' %}" class="avatar">
+        <h1>Register Here</h1>
+            <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.username }}
+              {{ form.email }}
+              {{ form.password1 }}
+              {{ form.password2 }}
+
+            <input type="submit" name="submit" value="Register">
+
+            </form>
+        </div>
+
+        <div class="footer">
+            <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+            <div class="icons">
+               <p> <a href="https://www.facebook.com/TrellisSoftInc/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/trellissoft/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/company/trellissoft/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/TrellisSoftInc"><i class="fa fa-twitter" aria-hidden="true"></i></a></p>
+        </div>
+        </div>
+<script>
+
+        var formfields = document.getElementsByTagName('input');
+        formfields[1].placeholder="User Name";
+        formfields[2].placeholder="Email";
+        formfields[3].placeholder="Password";
+        formfields[4].placeholder="Confirm Password";
+    </script>
+    </body>
+</html> -->
+
+
+
+
+
+{% load staticfiles %}
+
+
+<html>
+<head>
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+    <body>
+        <nav>
+            <section class="nav-container" style="background: white;">
+                <aside class="logo">
+                    <img src="{% static 'trellis-logo.png' %}" height="65px" weidth="100px">
+
+                </aside>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{% url 'dashboard' %}">Home</a></li>
+                            {% comment %} <li><a href="{% url 'login' %}">Login</a></li> {% endcomment %}
+                        </ul>
+                    </div>
+
+            </section>
+        </nav>
+        <div class="r-box">
+                <h1>SignUp</h1>
+                    <form name="myForm" method ="POST" action = "" >
+                        {% csrf_token %}
+                    <!-- <p>Username</p> -->
+                    <p style="display:inline;">Groups:</p>
+                        {{ form.groups }}
+                        {{ form.username }}
+                        {{form.errors.username}}                    <!-- <p>Email</p> -->
+                        {{ form.email }}
+                        {{form.errors.email}}                    <!-- <p>Email</p> -->
+                        {{ form.password1 }}
+                        {{form.errors.password1}}                    <!-- <p>Email</p> -->
+                        {{ form.password2 }}        
+                        {{form.errors.password2}}                    <!-- <p>Email</p> -->
+                        <input type="submit" name="submit" value="Register">
+
+                    </form>
+                </div>
+        <div class="footer">
+            <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+            <div class="icons">
+               <p> <a href="https://www.facebook.com/TrellisSoftInc/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/trellissoft/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/company/trellissoft/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/TrellisSoftInc"><i class="fa fa-twitter" aria-hidden="true"></i></a></p>
+        </div>
+        </div>
+
+                {% comment %} <p>{% if form.errors %}
+                {{ form.ValidationError }}<br>
+            {% endif %}</p> {% endcomment %}
+
+<script>
+
+        var formfields = document.getElementsByTagName('input');
+        formfields[1].placeholder="User Name";
+        formfields[2].placeholder="Email";
+        formfields[3].placeholder="Password";
+        formfields[4].placeholder="Confirm Password";
+    </script>
+    </body>
+</html>

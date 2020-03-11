@@ -1,0 +1,137 @@
+body,
+p,
+input,
+select,
+textarea,
+button {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #FAFAFA;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+}
+
+div,
+p {
+    color: rgb(100, 100, 100);
+    text-shadow: 1px 1px 1px rgb(241, 241, 241);
+}
+
+form {
+    padding: 16px;
+    background-color: white;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.segment {
+    text-align: center;
+}
+
+button,
+input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 rgb(245, 245, 245);
+}
+
+label {
+    display: block;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+input,
+textarea {
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px rgb(223, 223, 223);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px rgb(238, 237, 237);
+}
+
+button {
+    color: #61677C;
+    font-weight: bold;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px rgb(238, 238, 238);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    box-shadow: -2px -2px 5px #FFF, 2px 2px 5px #BABECC;
+}
+
+button:active {
+    box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+}
+
+button .icon {
+    margin-right: 8px;
+}
+
+button.unit {
+    border-radius: 8px;
+    line-height: 0;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    font-size: 19.2px;
+}
+
+button.unit .icon {
+    margin-right: 0;
+}
+
+button.red {
+    display: block;
+    width: 100%;
+    color: #AE1100;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.input-group label {
+    margin: 0;
+    flex: 1;
+}
+
+textarea {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 rgb(245, 245, 245);
+}
+
+select {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 16px;
+    width: 100%;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 rgb(245, 245, 245);
+}

@@ -1,0 +1,56 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>All Approved Leaves</title>
+<link rel="stylesheet" href="{% static 'css/all_tables.css' %}">
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body style="background-color: #F3F3F3;">
+ <nav id="menu" role="navigation">
+        <div class="brand">MENU</div>            
+        <ul>
+            <li><a href="{% url 'manager' %}">Home</a></li>
+            <li><a href="{% url 'leaves_list_mh' %}">All Leaves</a></li>
+            <li><a href="{% url 'applyleave' %}">Apply Leave</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+     <div class="page-wrap">
+        <button id="menu-toggle"></button>
+</div>
+<section>
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+    <th>User</th>
+    <th>Type</th>
+    <th>Day(s)</th>
+    <th>Status</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+  <tbody>
+    {% for leave in leave_list %}
+    <tr>
+    <td>{{ leave.user }}</td>
+    <td>{{ leave.leavetype}}</td>
+    <td>{{ leave.leave_days }}</td>
+    <td>{{ leave.status }}</td>
+    <td> 
+    <a href="{% url 'leaves_view_mh' leave.id %}">
+        <span>view</span>
+    </a> 
+    | <a href="{% url 'unapprove_leave' leave.id %}">
+    <span>unapprove</span>
+    </a>
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</section>
+<script src="{% static 'js/navbar.js' %}"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+<head>
+<title>ADMIN</title>
+<link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+<script src="{% static 'js/navbar.js' %}"></script>
+</head>
+<body>
+<nav id="menu" role="navigation">
+        <div class="brand">MENU</div>            
+        <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+        </ul>
+    </nav>
+     <div class="page-wrap">
+        <button id="menu-toggle"></button>
+        <div class="container" role="main">
+        <h1 style="color:black;">Hi {{ user }}</h1>
+        <a href="{% url 'logout' %}">logout</a>
+        <br/>
+        <br/>
+        
+        <a href="{% url 'register' %}">Register User</a>
+        <br/>
+        <br/>
+        
+        <a href="{% url 'add_employee' %}">Add Employee</a>
+    </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+</body>
+</html>

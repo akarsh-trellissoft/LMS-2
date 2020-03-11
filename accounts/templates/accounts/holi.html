@@ -1,0 +1,100 @@
+{% load staticfiles %}
+
+
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/holi.css' %}">   
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="https://cdn.rawgit.com/harvesthq/chosen/gh-pages/chosen.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <nav>
+        <section class="nav-container" style="background: white;">
+            <aside class="logo">
+                <img src="{% static 'trellis-logo.png' %}" height="65px" weidth="100px">
+                
+            </aside>
+                <div class="menu">
+                    <ul>
+                        <li><a href="{% url 'user' %}">Home</a></li>
+                        {% comment %} <li><a href="{% url 'login' %}">Logout</a></li> {% endcomment %}
+                    </ul>
+                </div>
+
+        </section>
+    </nav>
+    <!-- <div class="l-box"> -->
+        <table>
+            <tr>
+                <th><b>S.NO</b></th>
+                <th><b>Date</b></th>
+                <th><b>Day</b></th>
+                <th><b>Holiday</b></th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>1st Jan 2020</td>
+                <td>Wed</td>
+                <td>New Year</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>14th Jan 2020</td>
+                <td>Tue</td>
+                <td>Makarsankranti </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>10th Mar 2020</td>
+                <td>Tue</td>
+                <td>Rangwali Holi</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>10th April 2020</td>
+                <td>Fri </td>
+                <td>Good Friday </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>25th May 2020</td>
+                <td>Mon</td>
+                <td>Ramzan Eid </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>31st July 2020</td>
+                <td>Fri</td>
+                <td>Bakri Eid </td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>3rd Aug 2020</td>
+                <td>Mon</td>
+                <td>Rakshabandhan</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>2nd Oct 2020 </td>
+                <td>Fri </td>
+                <td>Gandhi Jayanti </td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>25th Dec 2020 </td>
+                <td>Fri </td>
+                <td>Christmas</td>
+            </tr>
+        </table>
+        <div class="footer">
+            <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+            <div class="icons">
+               <p> <a href="https://www.facebook.com/TrellisSoftInc/"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/trellissoft/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/company/trellissoft/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/TrellisSoftInc"><i class="fa fa-twitter" aria-hidden="true"></i></a></p>
+            </div>
+        </div>
+    <!-- </div> -->
+</body>    

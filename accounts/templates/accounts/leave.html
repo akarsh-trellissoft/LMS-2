@@ -1,0 +1,129 @@
+<!-- {% comment %} <!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>Leave Form</title>
+    <link rel='stylesheet' href='https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css'>
+    <link rel="stylesheet" href="{% static 'css/leave.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:500,700&amp;display=swap'>
+  </head>
+  <body>
+    <form action="{% url 'applyleave' %}" method="POST">
+      {% csrf_token %}
+      <div class="segment">
+        <h1>Leave Form</h1>
+      </div>
+	  <label>
+	  	{{ form.startdate.label }}
+		{{ form.startdate }}
+	  </label>
+	  <label>
+	  	{{ form.enddate.label }}
+		{{ form.enddate }}
+	  </label>
+	  <label>
+	  	{{ form.leavetype.label }}
+		{{ form.leavetype }}
+	  </label>
+	  <label>
+	  	{{ form.reason.label }}
+		{{ form.reason }}
+	  </label>
+      <button class="red" type="submit"><i class="icon ion-md-paper"></i> Submit leave</button>
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+<html>
+{% load staticfiles %}
+<head>
+    <title>Leave Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/leave2.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+    <body>
+    <div class="l-box">
+    <img src="{{ employee.image.url }}" class="avatar">
+        <h1>LEAVE FORM</h1>
+            <form action="{% url 'applyleave' %}" method="POST">
+            {% csrf_token %}
+            <p>Start Date</p>
+            {{ form.startdate }}
+            <p>End Date</p>
+            {{ form.enddate }}
+            {{ form.leavetype.label }} -
+            {{ form.leavetype }}
+			      <p>Reason</p>
+             {{ form.reason }}
+            <input type="submit" name="submit">
+            </form>
+          </div>
+          <div class="footer">
+            <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+        </div>
+        <script>
+          var inputs = document.getElementsByTagName('input');
+          inputs[0].placeholder="YYYY-MM-DD";
+          inputs[1].placeholder="YYYY-MM-DD";
+        </script>
+    </body>
+</html> -->
+
+
+
+
+<html>
+<head>
+    <title>Leave Form</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/lform.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+    <body>
+        <nav>
+            <section class="nav-container" style="background: white;">
+                <aside class="logo">
+                    <img src="{% static 'trellis-logo.png' %}" height="65px" weidth="100px">
+
+                </aside>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="{% url 'user' %}">Home</a></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </div>
+
+            </section>
+        </nav>
+        <div class="l-box">
+                <h1>Leave Form</h1>
+                    <form action="{% url 'applyleave' %}" method="POST" name="myForm">
+                      {% csrf_token %}
+                      <p>Start Date</p>
+                      {{ form.startdate }}
+                      <p>End Date</p>
+                      {{ form.enddate }}
+                    {{ form.leavetype }}
+                    <p>Reason</p>
+                     {{ form.reason }}
+                    <input type="submit" name="submit">
+                    {% for message in messages %}
+                     {{ message }}
+                    {% endfor %}
+                    </form>
+                  </div>
+
+                {% comment %} {% for message in messages %}
+                {{ message }}<br>
+                {% endfor %}
+
+
+                  <script>
+
+            
+
+                 </script>  {% endcomment %}
+    </body>
+</html>

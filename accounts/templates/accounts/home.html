@@ -1,0 +1,147 @@
+<!-- {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>LMS - TrellisSoft</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <header class="cd-header">
+		<div class="header-wrapper">
+			<div class="logo-wrap">
+				<a href="#" class="hover-target">
+                <span>Trellis</span>Soft
+                </a>
+			</div>
+			<div class="nav-but-wrap">
+				<div class="menu-icon hover-target">
+					<span class="menu-icon__line menu-icon__line-left"></span>
+					<span class="menu-icon__line"></span>
+					<span class="menu-icon__line menu-icon__line-right"></span>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="nav">
+		<div class="nav__content">
+			<ul class="nav__list">
+				<li class="nav__list-item active-nav"><a href="{% url 'home' %}" class="hover-target">Home</a></li>
+  				<li class="nav__list-item"><a href="{% url 'login' %}" class="hover-target">Login</a></li>
+				<li class="nav__list-item"><a href="{% url 'applyleave' %}" class="hover-target">Apply for Leave</a></li>
+				<li class="nav__list-item"><a href="#" class="hover-target">Feedback/Report Issue</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="section full-height over-hide">
+		<div class="switch-wrap">
+			<h1>Leave Management System</h1>
+            <p>Leave Management Systsem (LMS) is a simple Python-Django based application used to handle Leave applications. Please login to continue...</p>
+            <p>We are pioneer in delivering world-class IT services with over 10 years of experience in the industry. We help start-up and product companies in building innovative and award-winning products and modernizing their current technology products.</p>
+        </div>
+	</div>
+
+	<div class='cursor' id="cursor"></div>
+	<div class='cursor2' id="cursor2"></div>
+	<div class='cursor3' id="cursor3"></div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script  src="{% static 'js/home.js' %}"></script>
+
+</body>
+</html> -->
+
+
+
+
+
+{% load staticfiles %}
+<html>
+<head>
+    <title>TLMS</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <nav>
+        <section class="nav-container" style="background: white;">
+            <aside class="logo">
+                <img src="{% static 'trellis-logo.png' %}" height="65px" width="100px">
+            </aside>
+            <div class="menu">
+                <ul>
+                    {% comment %} <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'add_employee' %}">Add Employee</a></li> {% endcomment %}
+
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+            </div>
+        </section>
+    </nav>
+    <div class="message">
+        <h1 id="a">Leave Simplified.</h1>
+            {% comment %} <h5>A portal for all the empoloyee to view and apply leaves</h5> {% endcomment %}
+        <p class="greet" id="lblGreetings"></p>
+        <p id="quote"></p>
+    </div>
+    <div class="footer">
+        <p>All rights reserved. Copyright 2020 © TrellisSoft Inc.</p>
+        <div class="icons">
+            <p> <a href="https://www.facebook.com/TrellisSoftInc/" ><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+            <a href="https://www.instagram.com/trellissoft/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/company/trellissoft/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+            <a href="https://twitter.com/TrellisSoftInc" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></p>
+        </div>
+    </div>
+</body>
+<script>
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+
+    var greet;
+    var random;
+    var morning = [
+     "Each morning we are born again. What we do today is what matters most.",
+     "Give every day the chance to become the most beautiful day of your life.",
+     "A morning-glory at my window satisfies me more than the metaphysics of books.",
+     "Write it on your heart that every day is the best day in the year.",
+     "The breeze at dawn has secrets to tell you. Don’t go back to sleep."
+      ];
+    var afternoon = [
+     "The afternoon is not only the middle of the day it is the time to complete our essential task and go ahead in life",
+     "",
+     "A morning-glory at my window satisfies me more than the metaphysics of books.",
+     "Write it on your heart that every day is the best day in the year.",
+     "The breeze at dawn has secrets to tell you. Don’t go back to sleep."
+      ];
+    var evening=[
+    "The afternoon is not only the middle of the day it is the time to complete our essential task and go ahead in life",
+     "",
+     "A morning-glory at my window satisfies me more than the metaphysics of books.",
+     "Write it on your heart that every day is the best day in the year.",
+     "The breeze at dawn has secrets to tell you. Don’t go back to sleep."
+
+    ]
+
+
+    if (hrs < 12){
+        greet = 'Good Morning';
+        random = morning[Math.floor(Math.random()*morning.length)];
+    }
+    else if (hrs >= 12 && hrs <= 17){
+        greet = 'Good Afternoon';
+        random = afternoon[Math.floor(Math.random()*afternoon.length)];
+    }
+    else if (hrs >= 17 && hrs <= 24){
+        greet = 'Good Evening';
+        random = evening[Math.floor(Math.random()*evening.length)];
+    }
+    document.getElementById('lblGreetings').innerHTML ='<b>' + greet;
+    document.getElementById('quote').innerHTML ='<b>' + random + '</b> ';
+
+</script>
+</html>
